@@ -22,5 +22,6 @@
   "homepage": "https://github.com/MIKZON/frontend-project-lvl1#readme",
   "dependencies": {
     "lodash": "^4.17.20"
-  }
+  },
+  "devDependencies": {}
 }
