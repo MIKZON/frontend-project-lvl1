@@ -15,14 +15,15 @@ let randomNumber = getRandomIntInclusive;
 console.log(`Question: ${getRandomIntInclusive(0,100)}`);
 
 const giveAnswer = readlineSync.question('Your answer: ');
+let checkAnswer = giveAnswer
 let result = 0;
 let correctAnswersCheck = 3; 
 // const wrongAnswer = console.log(`'yes' is wrong answer ;(. Correct answer was 'no'.\nLet's try again, ${name}!`);
 
 for (let i = 0; i < correctAnswersCheck; i += 1) {
-  if (randomNumber % 2 === 0 && giveAnswer === 'yes') {
-    result += 1;
-  } if (randomNumber % 2 === 1 && giveAnswer === 'no') {
-    result += 1;
+  if (randomNumber % 2 === 0 && checkAnswer === 'yes') {
+    
+  } if (randomNumber % 2 === 1 && checkAnswer === 'no') {
+    
   }
 }
