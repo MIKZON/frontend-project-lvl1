@@ -1,17 +1,12 @@
 #!/usr/bin/env node
 import readlineSync from 'readline-sync';
 import name from '../src/cli.js';
+import getRandomIntInclusive from '../src/index.js';
 
 console.log(`Hello, ${name}!`);
 console.log('What is the result of the expression?');
 
 const operations = ['+', '-', '*'];
-
-const getRandomIntInclusive = (min, max) => {
-  const minValue = Math.ceil(min);
-  const maxValue = Math.floor(max);
-  return Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue; // Max and min includes
-};
 
 const correctAnswersCheck = 3;
 
