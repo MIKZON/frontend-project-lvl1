@@ -17,6 +17,7 @@ for (let i = 0; i < correctAnswersCheck; i += 1) {
   const calculationsNumbers = eval(`${randomNumberOne} ${operations[randomArr]} ${randomNumberTwo}`).toString();
   console.log(`Question: ${randomNumberOne} ${operations[randomArr]} ${randomNumberTwo}`);
   const giveAnswer = readlineSync.question('Your answer: ');
+
   if (calculationsNumbers === giveAnswer) {
     result += 1;
     console.log('Correct!');
