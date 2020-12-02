@@ -14,7 +14,7 @@ for (let i = 0; i < correctAnswersCheck; i += 1) {
   const randomNumberOne = getRandomIntInclusive(20, 100);
   const randomNumberTwo = getRandomIntInclusive(0, 30);
   const randomArr = Math.floor(Math.random() * operations.length);
-  let calculationsNumbers = eval(`${randomNumberOne} ${operations[randomArr]} ${randomNumberTwo}`).toString();
+  const calculationsNumbers = eval(`${randomNumberOne} ${operations[randomArr]} ${randomNumberTwo}`).toString();
   console.log(`Question: ${randomNumberOne} ${operations[randomArr]} ${randomNumberTwo}`);
   const giveAnswer = readlineSync.question('Your answer: ');
   if (calculationsNumbers === giveAnswer) {

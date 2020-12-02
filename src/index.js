@@ -1,4 +1,3 @@
-
 const getRandomIntInclusive = (min, max) => {
   const minValue = Math.ceil(min);
   const maxValue = Math.floor(max);
