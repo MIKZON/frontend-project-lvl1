@@ -1,7 +1,30 @@
-const getRandomIntInclusive = (min, max) => {
-  const minValue = Math.ceil(min);
-  const maxValue = Math.floor(max);
-  return Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue; // Max and min includes
+import readlineSync from 'readline-sync';
+
+const getRun = (discription, arr) => {
+  const correctAnswersCheck = 3;
+  let result = 0;
+  console.log('Welcome to the Brain Games');
+  const name = readlineSync.question('May I have your name? ');
+  console.log(`Hello, ${name}!`);
+  console.log(discription);
+  for (let i = 0; i < correctAnswersCheck; i += 1) {
+    const data = arr[i];
+    const question = data[0];
+    console.log(`Question: ${question}`);
+    const answer = data[1];
+    const giveAnswer = readlineSync.question('Your answer: ');
+    if (answer === giveAnswer) {
+      result += 1;
+      console.log('Correct!');
+    } else {
+      break;
+    }
+  }
+  if (result === correctAnswersCheck) {
+    console.log(`Congratulations, ${name}!`);
+  } else {
+    console.log(`'yes' is wrong answer ;(. Correct answer was 'no'.\nLet's try again, ${name}!`);
+  }
 };
 
-export default getRandomIntInclusive;
+export default getRun;
