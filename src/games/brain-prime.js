@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import getRun from '../../src/index.js';
 
 const getRandomIntInclusive = (min, max) => {

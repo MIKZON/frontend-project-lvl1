@@ -17,13 +17,12 @@ const getRun = (discription, arr) => {
       result += 1;
       console.log('Correct!');
     } else {
+      console.log(`'${giveAnswer}' is wrong answer ;(. Correct answer was '${answer}'.\nLet's try again, ${name}!`);
       break;
     }
   }
   if (result === correctAnswersCheck) {
     console.log(`Congratulations, ${name}!`);
-  } else {
-    console.log(`'yes' is wrong answer ;(. Correct answer was 'no'.\nLet's try again, ${name}!`);
   }
 };
 
