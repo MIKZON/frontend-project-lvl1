@@ -1,4 +1,4 @@
-import getRun from '../../src/index.js';
+import getRun from '../index.js';
 
 const getRandomIntInclusive = (min, max) => {
   const minValue = Math.ceil(min);

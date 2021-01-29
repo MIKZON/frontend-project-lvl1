@@ -1,5 +1,4 @@
-#!/usr/bin/env node
-import getRun from '../../src/index.js';
+import getRun from '../index.js';
 
 const getRandomIntInclusive = (min, max) => {
   const minValue = Math.ceil(min);
@@ -7,17 +6,18 @@ const getRandomIntInclusive = (min, max) => {
   return Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue; // Max and min includes
 };
 
-const greatestDivisor = (firstNum, secondNum) => {
-  if (!secondNum) {
-    return firstNum;
-  } return greatestDivisor(secondNum, firstNum % secondNum);
-};
-
 const makeData = () => {
   const randomNumberOne = getRandomIntInclusive(20, 100);
-  const randomNumberTwo = getRandomIntInclusive(0, 30);
-  const question = `${randomNumberOne} ${randomNumberTwo}`;
-  const answer = greatestDivisor(randomNumberOne, randomNumberTwo).toString();
+  const step = getRandomIntInclusive(0, 7);
+  const arr = [];
+  for (let i = 0; arr.length < 10; i += 1) {
+    const currentElement = randomNumberOne + (i - 1) * step;
+    arr.push(currentElement);
+  }
+  const randomIndex = getRandomIntInclusive(0, 9);
+  const answer = arr[randomIndex].toString();
+  arr[randomIndex] = '..';
+  const question = `${arr.join(' ')}`;
 
   return [question, answer];
 };
@@ -30,7 +30,6 @@ const run = () => {
     arr.push(makeData());
   }
 
-  console.log(arr);
   getRun(discription, arr);
 };
 
