@@ -6,15 +6,27 @@ const getRandomIntInclusive = (min, max) => {
   return Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue; // Max and min includes
 };
 
+const isPrime = (num) => {
+  if (num <= 1) {
+    return false;
+  }
+  for (let i = 2; i < num; i += 1) {
+    if (num % i === 0) {
+      return false;
+    }
+  }
+  return true;
+};
+
 const makeData = () => {
   const question = getRandomIntInclusive(0, 100);
-  const answer = question % 2 === 0 ? 'yes' : 'no';
+  const answer = isPrime(question) ? 'yes' : 'no';
 
   return [question, answer];
 };
 
 const run = () => {
-  const discription = 'Answer "yes" if the number is even, otherwise answer "no"';
+  const discription = 'Answer "yes" if given number is prime. Otherwise answer "no".';
   const arr = [];
 
   for (let i = 0; i < 3; i += 1) {
