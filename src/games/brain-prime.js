@@ -7,9 +7,6 @@ const getRandomIntInclusive = (min, max) => {
 };
 
 const isPrime = (num) => {
-  if (num <= 1) {
-    return false;
-  }
   for (let i = 2; i < num; i += 1) {
     if (num % i === 0) {
       return false;
@@ -33,7 +30,6 @@ const run = () => {
     arr.push(makeData());
   }
 
-  console.log(arr);
   getRun(discription, arr);
 };
 
