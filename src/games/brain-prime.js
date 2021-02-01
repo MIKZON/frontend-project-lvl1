@@ -1,10 +1,5 @@
-import { getRun, roundsCount } from '../index.js';
-
-const generateNumber = (min, max) => {
-  const minValue = Math.ceil(min);
-  const maxValue = Math.floor(max);
-  return Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue; // Max and min includes
-};
+import { run, roundsCount } from '../index.js';
+import generateNumber from '../ut.js';
 
 const isPrime = (num) => {
   for (let i = 2; i < num; i += 1) {
@@ -16,21 +11,19 @@ const isPrime = (num) => {
 };
 
 const makeData = () => {
-  const question = generateNumber(0, 100);
+  const question = generateNumber(1, 20);
   const answer = isPrime(question) ? 'yes' : 'no';
 
   return [question, answer];
 };
 
-const run = () => {
+export default () => {
   const description = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-  const array = [];
+  const rounds = [];
 
   for (let i = 0; i < roundsCount; i += 1) {
-    array.push(makeData());
+    rounds.push(makeData());
   }
 
-  getRun(description, array);
+  run(description, rounds);
 };
-
-export default run;

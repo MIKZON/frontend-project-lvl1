@@ -1,36 +1,29 @@
-import { getRun, roundsCount } from '../index.js';
-
-const generateNumber = (min, max) => {
-  const minValue = Math.ceil(min);
-  const maxValue = Math.floor(max);
-  return Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue; // Max and min includes
-};
+import { run, roundsCount } from '../index.js';
+import generateNumber from '../ut.js';
 
 const makeData = () => {
-  const randomNumberOne = generateNumber(20, 100);
+  const num1 = generateNumber(1, 20);
   const step = generateNumber(0, 7);
-  const array = [];
-  for (let i = 0; array.length < 10; i += 1) {
-    const currentElement = randomNumberOne + (i - 1) * step;
-    array.push(currentElement);
+  const rounds = [];
+  for (let i = 0; rounds.length < 10; i += 1) {
+    const currentElement = num1 + (i - 1) * step;
+    rounds.push(currentElement);
   }
   const randomIndex = generateNumber(0, 9);
-  const answer = array[randomIndex].toString();
-  array[randomIndex] = '..';
-  const question = `${array.join(' ')}`;
+  const answer = rounds[randomIndex].toString();
+  rounds[randomIndex] = '..';
+  const question = `${rounds.join(' ')}`;
 
   return [question, answer];
 };
 
-const run = () => {
+export default () => {
   const description = 'What number is missing in the progression?';
-  const array = [];
+  const rounds = [];
 
   for (let i = 0; i < roundsCount; i += 1) {
-    array.push(makeData());
+    rounds.push(makeData());
   }
 
-  getRun(description, array);
+  run(description, rounds);
 };
-
-export default run;

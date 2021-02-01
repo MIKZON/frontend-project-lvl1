@@ -1,36 +1,29 @@
-import { getRun, roundsCount } from '../index.js';
+import { run, roundsCount } from '../index.js';
+import generateNumber from '../ut.js';
 
-const generateNumber = (min, max) => {
-  const minValue = Math.ceil(min);
-  const maxValue = Math.floor(max);
-  return Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue;
-};
-
-const greatestDivisor = (firstNum, secondNum) => {
-  if (!secondNum) {
-    return firstNum;
+const greatestDivisor = (num1, num2) => {
+  if (!num2) {
+    return num1;
   }
-  return greatestDivisor(secondNum, firstNum % secondNum);
+  return greatestDivisor(num2, num1 % num2);
 };
 
 const makeData = () => {
-  const randomNumberOne = generateNumber(20, 100);
-  const randomNumberTwo = generateNumber(0, 30);
-  const question = `${randomNumberOne} ${randomNumberTwo}`;
-  const answer = greatestDivisor(randomNumberOne, randomNumberTwo).toString();
+  const num1 = generateNumber(1, 20);
+  const num2 = generateNumber(1, 20);
+  const question = `${num1} ${num2}`;
+  const answer = greatestDivisor(num1, num2).toString();
 
   return [question, answer];
 };
 
-const run = () => {
+export default () => {
   const description = 'Find the greatest common divisor of given numbers';
-  const array = [];
+  const rounds = [];
 
   for (let i = 0; i < roundsCount; i += 1) {
-    array.push(makeData());
+    rounds.push(makeData());
   }
 
-  getRun(description, array);
+  run(description, rounds);
 };
-
-export default run;

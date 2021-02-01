@@ -14,8 +14,8 @@ const getNumber = (num1, num2, character) => {
   //  throw new Error(`Unknown character -- ${character}`);
 };
 const makeData = () => {
-  const num1 = generateNumber(20, 100);
-  const num2 = generateNumber(0, 30);
+  const num1 = generateNumber(1, 20);
+  const num2 = generateNumber(1, 20);
   const randomNum = Math.floor(Math.random() * operations.length);
   const question = `${num1} ${operations[randomNum]} ${num2}`;
   const answer = getNumber(num1, num2, operations[randomNum]).toString();
