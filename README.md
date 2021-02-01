@@ -30,14 +30,14 @@ $ make lint
 
 [![asciicast](https://asciinema.org/a/XPU5MgtA1fTmE9vX8Uukpy8Qm.svg)](https://asciinema.org/a/XPU5MgtA1fTmE9vX8Uukpy8Qm)
 
-#brain-gcd
+##brain-gcd
 
 [![asciicast](https://asciinema.org/a/1uEYg06FIL5boLmlcuaTG53SI.svg)](https://asciinema.org/a/1uEYg06FIL5boLmlcuaTG53SI)
 
-#brain-prime
+##brain-prime
 
 [![asciicast](https://asciinema.org/a/fLXZC35v5bBbrNQFLW69d3tHy.svg)](https://asciinema.org/a/fLXZC35v5bBbrNQFLW69d3tHy)
 
-#brain-progression 
+##brain-progression 
 
 [![asciicast](https://asciinema.org/a/Nu46ITMgnM6WZLnwnLfANwzDf.svg)](https://asciinema.org/a/Nu46ITMgnM6WZLnwnLfANwzDf)
