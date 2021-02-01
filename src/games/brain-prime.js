@@ -1,6 +1,6 @@
-import getRun from '../index.js';
+import { getRun, roundsCount } from '../index.js';
 
-const getRandomIntInclusive = (min, max) => {
+const generateNumber = (min, max) => {
   const minValue = Math.ceil(min);
   const maxValue = Math.floor(max);
   return Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue; // Max and min includes
@@ -16,21 +16,21 @@ const isPrime = (num) => {
 };
 
 const makeData = () => {
-  const question = getRandomIntInclusive(0, 100);
+  const question = generateNumber(0, 100);
   const answer = isPrime(question) ? 'yes' : 'no';
 
   return [question, answer];
 };
 
 const run = () => {
-  const discription = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-  const arr = [];
+  const description = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+  const array = [];
 
-  for (let i = 0; i < 3; i += 1) {
-    arr.push(makeData());
+  for (let i = 0; i < roundsCount; i += 1) {
+    array.push(makeData());
   }
 
-  getRun(discription, arr);
+  getRun(description, array);
 };
 
 export default run;

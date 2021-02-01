@@ -1,20 +1,21 @@
-import getRun from '../index.js';
+import { getRun, roundsCount } from '../index.js';
 
-const getRandomIntInclusive = (min, max) => {
+const generateNumber = (min, max) => {
   const minValue = Math.ceil(min);
   const maxValue = Math.floor(max);
-  return Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue; // Max and min includes
+  return Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue;
 };
 
 const greatestDivisor = (firstNum, secondNum) => {
   if (!secondNum) {
     return firstNum;
-  } return greatestDivisor(secondNum, firstNum % secondNum);
+  }
+  return greatestDivisor(secondNum, firstNum % secondNum);
 };
 
 const makeData = () => {
-  const randomNumberOne = getRandomIntInclusive(20, 100);
-  const randomNumberTwo = getRandomIntInclusive(0, 30);
+  const randomNumberOne = generateNumber(20, 100);
+  const randomNumberTwo = generateNumber(0, 30);
   const question = `${randomNumberOne} ${randomNumberTwo}`;
   const answer = greatestDivisor(randomNumberOne, randomNumberTwo).toString();
 
@@ -22,15 +23,14 @@ const makeData = () => {
 };
 
 const run = () => {
-  const discription = 'Find the greatest common divisor of given numbers';
-  const arr = [];
+  const description = 'Find the greatest common divisor of given numbers';
+  const array = [];
 
-  for (let i = 0; i < 3; i += 1) {
-    arr.push(makeData());
+  for (let i = 0; i < roundsCount; i += 1) {
+    array.push(makeData());
   }
 
-  console.log(arr);
-  getRun(discription, arr);
+  getRun(description, array);
 };
 
 export default run;

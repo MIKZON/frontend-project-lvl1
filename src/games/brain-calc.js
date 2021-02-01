@@ -1,14 +1,13 @@
-import getRun from '../index.js';
+import { getRun, roundsCount } from '../index.js';
 
-const getRandomIntInclusive = (min, max) => {
+const generateNumber = (min, max) => {
   const minValue = Math.ceil(min);
   const maxValue = Math.floor(max);
-  return Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue; // Max and min includes
+  return Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue;
 };
 
 const operations = ['+', '-', '*'];
 const getAnswer = (num1, num2, character) => {
-  console.log(num1, num2, character);
   if (character === '-') {
     return num1 - num2;
   } if (character === '+') {
@@ -19,8 +18,8 @@ const getAnswer = (num1, num2, character) => {
   throw new Error(`Unknown character -- ${character}`);
 };
 const makeData = () => {
-  const randomNumberOne = getRandomIntInclusive(20, 100);
-  const randomNumberTwo = getRandomIntInclusive(0, 30);
+  const randomNumberOne = generateNumber(20, 100);
+  const randomNumberTwo = generateNumber(0, 30);
   const randomArr = Math.floor(Math.random() * operations.length);
   const question = `${randomNumberOne} ${operations[randomArr]} ${randomNumberTwo}`;
   const answer = getAnswer(randomNumberOne, randomNumberTwo, operations[randomArr]).toString();
@@ -29,15 +28,14 @@ const makeData = () => {
 };
 
 const run = () => {
-  const discription = 'What is the result of the expression?';
-  const arr = [];
+  const description = 'What is the result of the expression?';
+  const array = [];
 
-  for (let i = 0; i < 3; i += 1) {
-    arr.push(makeData());
+  for (let i = 0; i < roundsCount; i += 1) {
+    array.push(makeData());
   }
 
-  console.log(arr);
-  getRun(discription, arr);
+  getRun(description, array);
 };
 
 export default run;
