@@ -1,41 +1,35 @@
-import { getRun, roundsCount } from '../index.js';
-
-const generateNumber = (min, max) => {
-  const minValue = Math.ceil(min);
-  const maxValue = Math.floor(max);
-  return Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue;
-};
+import { run, roundsCount } from '../index.js';
+import generateNumber from '../ut.js';
 
 const operations = ['+', '-', '*'];
-const getAnswer = (num1, num2, character) => {
-  if (character === '-') {
-    return num1 - num2;
-  } if (character === '+') {
-    return num1 + num2;
-  } if (character === '*') {
-    return num1 * num2;
+const getNumber = (num1, num2, character) => {
+  switch (character) {
+    case '+':
+      return num1 + num2;
+    case '-':
+      return num1 - num2;
+    default:
+      return num1 * num2;
   }
-  throw new Error(`Unknown character -- ${character}`);
+  //  throw new Error(`Unknown character -- ${character}`);
 };
 const makeData = () => {
-  const randomNumberOne = generateNumber(20, 100);
-  const randomNumberTwo = generateNumber(0, 30);
-  const randomArr = Math.floor(Math.random() * operations.length);
-  const question = `${randomNumberOne} ${operations[randomArr]} ${randomNumberTwo}`;
-  const answer = getAnswer(randomNumberOne, randomNumberTwo, operations[randomArr]).toString();
+  const num1 = generateNumber(20, 100);
+  const num2 = generateNumber(0, 30);
+  const randomNum = Math.floor(Math.random() * operations.length);
+  const question = `${num1} ${operations[randomNum]} ${num2}`;
+  const answer = getNumber(num1, num2, operations[randomNum]).toString();
 
   return [question, answer];
 };
 
-const run = () => {
+export default () => {
   const description = 'What is the result of the expression?';
-  const array = [];
+  const rounds = [];
 
   for (let i = 0; i < roundsCount; i += 1) {
-    array.push(makeData());
+    rounds.push(makeData());
   }
 
-  getRun(description, array);
+  run(description, rounds);
 };
-
-export default run;
