@@ -9,7 +9,6 @@ This repository is created and maintained by the team and the community of Hexle
 [![Hexlet Check](https://github.com/MIKZON/frontend-project-lvl1/workflows/hexlet-check/badge.svg)](https://github.com/MIKZON/frontend-project-lvl1/actions?query=workflow%3Ahexlet-check)
 [![Linter](https://github.com/MIKZON/frontend-project-lvl1/workflows/linter/badge.svg)](https://github.com/MIKZON/frontend-project-lvl1/actions?query=workflow%3Alinter)
 [![Maintainability](https://api.codeclimate.com/v1/badges/dfc50c2d88cd46d069c1/maintainability)](https://codeclimate.com/github/MIKZON/frontend-project-lvl1/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/dfc50c2d88cd46d069c1/test_coverage)](https://codeclimate.com/github/MIKZON/frontend-project-lvl1/test_coverage)
 
 ## Setup
 
