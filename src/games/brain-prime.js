@@ -2,6 +2,9 @@ import { run, roundsCount } from '../index.js';
 import generateNumber from '../ut.js';
 
 const isPrime = (num) => {
+  if (num <= 1) {
+    return false;
+  }
   for (let i = 2; i < num; i += 1) {
     if (num % i === 0) {
       return false;
@@ -10,7 +13,7 @@ const isPrime = (num) => {
   return true;
 };
 
-const makeData = () => {
+const generateRound = () => {
   const question = generateNumber(1, 20);
   const answer = isPrime(question) ? 'yes' : 'no';
 
@@ -22,7 +25,7 @@ export default () => {
   const rounds = [];
 
   for (let i = 0; i < roundsCount; i += 1) {
-    rounds.push(makeData());
+    rounds.push(generateRound());
   }
 
   run(description, rounds);

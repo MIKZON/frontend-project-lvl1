@@ -1,7 +1,7 @@
 import { run, roundsCount } from '../index.js';
 import generateNumber from '../ut.js';
 
-const makeData = () => {
+const generateRound = () => {
   const question = generateNumber(1, 20);
   const answer = question % 2 === 0 ? 'yes' : 'no';
 
@@ -13,7 +13,7 @@ export default () => {
   const rounds = [];
 
   for (let i = 0; i < roundsCount; i += 1) {
-    rounds.push(makeData());
+    rounds.push(generateRound());
   }
 
   run(description, rounds);
