@@ -1,6 +1,7 @@
-import { run, roundsCount } from '../index.js';
-import generateNumber from '../ut.js';
+import run from '../index.js';
+import { generateNumber } from '../utils.js';
 
+const description = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 const isPrime = (num) => {
   if (num <= 1) {
     return false;
@@ -21,12 +22,5 @@ const generateRound = () => {
 };
 
 export default () => {
-  const description = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-  const rounds = [];
-
-  for (let i = 0; i < roundsCount; i += 1) {
-    rounds.push(generateRound());
-  }
-
-  run(description, rounds);
+  run(description, generateRound);
 };
